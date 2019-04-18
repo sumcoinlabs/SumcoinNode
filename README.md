@@ -1,8 +1,8 @@
-# LitecoinNode
+# SumcoinNode
 
-## What is LitecoinNode?
+## What is SumcoinNode?
 
-This project is an attempt to make it simpler for anyone who wishes to install the software to ‘become’ a supernode. In other words, the LitecoinNode script allows everyone/anyone to simply answer a bunch of questions; leading to your computer running a full Litecoin Supernode. Here are some features that LitecoinNode supports:-
+This project is an attempt to make it simpler for anyone who wishes to install the software to ‘become’ a supernode. In other words, the SumcoinNode script allows everyone/anyone to simply answer a bunch of questions; leading to your computer running a full Sumcoin Supernode. Here are some features that SumcoinNode supports:-
 
 - HTTP status page [optional]
 - Quick initial block syncing through use of ‘bootstrap.dat’ [optional]
@@ -12,7 +12,7 @@ This project is an attempt to make it simpler for anyone who wishes to install t
 
 ## Why run a Supernode?
 
-A supernode is just a computer which runs the Litecoin Core client 24/7. It allows for long term storage of transactions (through the blockchain). This is done by: syncing the relevant block (group of transactions) with other Litecoin Clients which may not used all day. If you are familiar with Bitcoin, then a supernode is the equivalent of a Bitcoin full node. This list include many of the uses of a supernode:- 
+A supernode is just a computer which runs the Sumcoin Core client 24/7. It allows for long term storage of transactions (through the blockchain). This is done by: syncing the relevant block (group of transactions) with other Sumcoin Clients which may not used all day. If you are familiar with Bitcoin, then a supernode is the equivalent of a Bitcoin full node. This list include many of the uses of a supernode:- 
 
 - the network rely’s on Supernodes by helping it accept transactions and blocks from other nodes
 - relaying (sending) this information to other nodes
@@ -36,18 +36,18 @@ A supernode is just a computer which runs the Litecoin Core client 24/7. It allo
 sudo su root
 ```
 ```
-wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/install.log
+wget https://raw.githubusercontent.com/Sumcoin-association/SumcoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/install.log
 ```
 
 ## Updating
 
-Unless you had selected to enable automated updates, you will have to copy&paste the following line into Terminal to keep to date with the Litecoin network.
+Unless you had selected to enable automated updates, you will have to copy&paste the following line into Terminal to keep to date with the Sumcoin network.
 
 ```
 sudo su root
 ```
 ```
-wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/update.log
+wget https://raw.githubusercontent.com/Sumcoin-association/SumcoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/update.log
 ```
 
 ## Word of warning
@@ -56,4 +56,4 @@ Please do not run scripts from the internet without reviewing them first! Always
 
 ## Any errors?
 
-Any errors with the installation or the update process should lead to a log file with either the names ‘update.log’ or ‘install.log’ - if there is something wrong, please visit our [GitHub] (https://github.com/litecoin-association/LitecoinNode) and create an issue attached with the corresponding log file. Don’t hesitate to report any errors you encounter.
+Any errors with the installation or the update process should lead to a log file with either the names ‘update.log’ or ‘install.log’ - if there is something wrong, please visit our [GitHub] (https://github.com/Sumcoin-association/SumcoinNode) and create an issue attached with the corresponding log file. Don’t hesitate to report any errors you encounter.
