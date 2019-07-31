@@ -17,38 +17,38 @@ REP_VERSION=$(sed -n 1p $HOME/version) #get the current version number from the 
 
 if [ "$LOC_VERSION" -lt "$REP_VERSION" ]
 then
-	#stop the litecoin daemon
+	#stop the sumcoin daemon
 	echo "We need to update!"
-	echo "Stop Litecoind to make sure it does not lock any files"
-	systemctl stop litecoind.service
+	echo "Stop Sumcoind to make sure it does not lock any files"
+	systemctl stop sumcoind.service
 
-	#remove old litecoind binary
-	echo "Removing old litecoind bin file"
-	rm -f -v $LITECOIND_BIN_DIR/litecoind
-	rm -f -v $LITECOIND_BIN_DIR/litecoin-cli
+	#remove old sumcoind binary
+	echo "Removing old sumcoind bin file"
+	rm -f -v $SUMCOIND_BIN_DIR/sumcoind
+	rm -f -v $SUMCOIND_BIN_DIR/sumcoin-cli
 
 	#gets arch data
 	if test $ARCH -eq "64"
 	then
-	LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-	LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux64"
+	SUMCOIN_DL_URL=$SUMCOIN_DL_URL_64
+	SUMCOIN_VER="$SUMCOIN_VER_NO_BIT-linux64"
 	else
-	LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-	LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux32"
+	SUMCOIN_DL_URL=$SUMCOIN_DL_URL_32
+	SUMCOIN_VER="$SUMCOIN_VER_NO_BIT-linux32"
 	fi
 
-	#download, unpack and move the new litecoind binary
-	echo "Downloading, unpacking and moving new Litecoind version to $LITECOIND_BIN_DIR"
-	wget --progress=bar:force $LITECOIN_DL_URL -P $HOME
-	tar zxvf $HOME/$LITECOIN_VER.tar.gz
-	rm -f -v $HOME/$LITECOIN_VER.tar.gz
-	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
-	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
-	rm -r -f -v $HOME/$LITECOIN_VER_NO_BIT
+	#download, unpack and move the new sumcoind binary
+	echo "Downloading, unpacking and moving new Sumcoind version to $SUMCOIND_BIN_DIR"
+	wget --progress=bar:force $SUMCOIN_DL_URL -P $HOME
+	tar zxvf $HOME/$SUMCOIN_VER.tar.gz
+	rm -f -v $HOME/$SUMCOIN_VER.tar.gz
+	cp -f -v $HOME/$SUMCOIN_VER_NO_BIT/bin/sumcoind $SUMCOIND_BIN_DIR
+	cp -f -v $HOME/$SUMCOIN_VER_NO_BIT/bin/sumcoin-cli $SUMCOIND_BIN_DIR
+	rm -r -f -v $HOME/$SUMCOIN_VER_NO_BIT
 
-	#start litecoin daemon
-	echo "Starting new litecoind"
-	systemctl start litecoind.service
+	#start sumcoin daemon
+	echo "Starting new sumcoind"
+	systemctl start sumcoind.service
 
 	#remove current and move the new version file
 	echo "Removing current version file."
@@ -58,8 +58,8 @@ then
 	chmod -R 0600 $HOME/scripts/version
 	chown -R root:root $HOME/scripts/version
 
-	#update the node status page and litecoin-node-status.py script if the litecoin-node-status.py file exists
-	NODESTATUS_FILE="$HOME/scripts/litecoin-node-status.py"
+	#update the node status page and sumcoin-node-status.py script if the sumcoin-node-status.py file exists
+	NODESTATUS_FILE="$HOME/scripts/sumcoin-node-status.py"
 
 	if [ -f "$NODESTATUS_FILE" ]
 	then
@@ -78,30 +78,30 @@ then
 		wget --progress=bar:force $WEBSITE_DL_URL/favicon.ico -P $RASPBIAN_WEBSITE_DIR
 		wget --progress=bar:force $WEBSITE_DL_URL/style.css -P $RASPBIAN_WEBSITE_DIR
 
-		#Remove the current litecoin-node-status.py file
-		echo "Remove litecoin-node-status.py file"
-		rm -f -v $HOME/scripts/litecoin-node-status.py
+		#Remove the current sumcoin-node-status.py file
+		echo "Remove sumcoin-node-status.py file"
+		rm -f -v $HOME/scripts/sumcoin-node-status.py
 
-		#get updated litecoin-node-status.py file
-		echo "download new litecoin-node-status.py file"
+		#get updated sumcoin-node-status.py file
+		echo "download new sumcoin-node-status.py file"
 		wget --progress=bar:force $NODESTATUS_DL_URL -P $HOME/scripts
-		chmod -R 0700 $HOME/scripts/litecoin-node-status.py
-		chown -R root:root $HOME/scripts/litecoin-node-status.py
+		chmod -R 0700 $HOME/scripts/sumcoin-node-status.py
+		chown -R root:root $HOME/scripts/sumcoin-node-status.py
 
-		#get the rpcuser and rpcuserpassword from the litecoin.conf file to inject later
-		RPC_USER=$(sed -n 1p $LITECOIND_CONF_FILE | cut -c9-39) #get the rpcuser  from the litecoin.conf file
-		RPC_PASSWORD=$(sed -n 2p $LITECOIND_CONF_FILE | cut -c13-42) #get the rpcuserpassword from the litecoin.conf file
+		#get the rpcuser and rpcuserpassword from the sumcoin.conf file to inject later
+		RPC_USER=$(sed -n 1p $SUMCOIND_CONF_FILE | cut -c9-39) #get the rpcuser  from the sumcoin.conf file
+		RPC_PASSWORD=$(sed -n 2p $SUMCOIND_CONF_FILE | cut -c13-42) #get the rpcuserpassword from the sumcoin.conf file
 
-		#Add $RASPBIAN_WEBSITE_DIR to the new litecoin-node-status.py script
-		echo "Add the distributions website dir to the litecoin-nodes-status.py script"
-		sed -i -e '13iff = open('"'$RASPBIAN_WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
+		#Add $RASPBIAN_WEBSITE_DIR to the new sumcoin-node-status.py script
+		echo "Add the distributions website dir to the sumcoin-nodes-status.py script"
+		sed -i -e '13iff = open('"'$RASPBIAN_WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/sumcoin-node-status.py
 
-		#Add Litecoin rpc user and password to the  new litecoin-node-status.py script
-		echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
-		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/litecoin-node-status.py #add the rpcuser and rpcpassword to the litecoin-node-status.py script
+		#Add Sumcoin rpc user and password to the  new sumcoin-node-status.py script
+		echo "Add Sumcoin rpc user and password to the sumcoin-nodes-tatus.py script"
+		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/sumcoin-node-status.py #add the rpcuser and rpcpassword to the sumcoin-node-status.py script
 
-		#Add a countdown to give litecoind some time to start before updating the nodestatus page to prevent an access denied error
-		echo "Start countdown to give litecoind some time to start before updating the node status page."
+		#Add a countdown to give sumcoind some time to start before updating the nodestatus page to prevent an access denied error
+		echo "Start countdown to give sumcoind some time to start before updating the node status page."
 		cdtime=$((1 * 15))
 		while [ $cdtime -gt 0 ]; do
 			echo -ne "$cdtime\033[0K\r"
@@ -110,7 +110,7 @@ then
 		done
 
 		#update the nodestatus page
-		python $HOME/scripts/litecoin-node-status.py
+		python $HOME/scripts/sumcoin-node-status.py
 	fi
 else
 	rm -f -v $HOME/version

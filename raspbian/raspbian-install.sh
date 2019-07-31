@@ -22,16 +22,16 @@ then
 	apt-get upgrade -y
 fi
 
-#do we want to install Litecoin
-read -r -p "Do you want to install Litecoin? (Y/N) " ANSWER
+#do we want to install Sumcoin
+read -r -p "Do you want to install Sumcoin? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
-	wget --progress=bar:force $RASPBIAN_BASE/$DIST-install-litecoin.sh -P $HOME
-	source $HOME/$DIST-install-litecoin.sh
-	rm -f -v $HOME/$DIST-install-litecoin.sh
+	wget --progress=bar:force $RASPBIAN_BASE/$DIST-install-sumcoin.sh -P $HOME
+	source $HOME/$DIST-install-sumcoin.sh
+	rm -f -v $HOME/$DIST-install-sumcoin.sh
 
-		read -r -p "Do you want to install the Litecoin automatic update script? (Y/N) " ANSWER
+		read -r -p "Do you want to install the Sumcoin automatic update script? (Y/N) " ANSWER
 		echo
 		if [[ $ANSWER =~ ^([yY])$ ]]
 		then
