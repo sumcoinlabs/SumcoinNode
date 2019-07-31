@@ -35,8 +35,8 @@ RANDOM=$$$(date +%s)
 BOOTSTRAP_DL_LOCATION=${array[$RANDOM % ${#array[@]} ]}
 
 #define download locations
-SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master" #the download location of the script files
-WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/shared/www" #the download location of the status page website files
+SCRIPT_DL_URL="https://raw.githubusercontent.com/sumcoinlabs/SumcoinNode/master" #the download location of the script files
+WEBSITE_DL_URL="https://raw.githubusercontent.com/sumcoinlabs/SumcoinNode/master/shared/www" #the download location of the status page website files
 
 LITECOIN_FILENAME_64="$LITECOIN_VER_NO_BIT-x86_64-linux-gnu.tar.gz" #litecoin x64 file name
 LITECOIN_DL_URL_64="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_FILENAME_64" #litecoin x64 download link
