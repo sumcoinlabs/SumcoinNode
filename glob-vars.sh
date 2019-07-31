@@ -1,7 +1,7 @@
 #define user account, group and current sumcoin version
 SUMCOIND_USER="sumcoind" #the user sumcoind will run under
 SUMCOIND_GROUP="sumcoind" #the group sumcoind is a member of
-SUMCOIN_VER_NO_BIT="sumcoin-0.14.2"
+SUMCOIN_VER_NO_BIT="sumcoin-0.16.1"
 SUMCOIN_VER_W_BIT="$SUMCOIN_VER_NO_BIT.0"
 
 #define directory locations
