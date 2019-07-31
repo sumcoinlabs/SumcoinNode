@@ -46,5 +46,5 @@ sed -i -e '13iff = open('"'$DEBIAN_WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/s
 
 #Add Sumcoin rpc user and password to the sumcoin-node-status.py script
 echo "Add Sumcoin rpc user and password to the sumcoin-nodes-tatus.py script"
-sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/sumcoin-node-status.py #add the generated rpcuser and rpcpassword to the sumcoin-node-status.py script
+sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:3332")\' $HOME/scripts/sumcoin-node-status.py #add the generated rpcuser and rpcpassword to the sumcoin-node-status.py script
 python $HOME/scripts/sumcoin-node-status.py

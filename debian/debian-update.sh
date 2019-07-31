@@ -98,7 +98,7 @@ then
 
 		#Add Sumcoin rpc user and password to the  new sumcoin-node-status.py script
 		echo "Add Sumcoin rpc user and password to the sumcoin-nodes-tatus.py script"
-		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/sumcoin-node-status.py #add the rpcuser and rpcpassword to the sumcoin-node-status.py script
+		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:3332")\' $HOME/scripts/sumcoin-node-status.py #add the rpcuser and rpcpassword to the sumcoin-node-status.py script
 
 		#Add a countdown to give sumcoind some time to start before updating the nodestatus page to prevent an access denied error
 		echo "Start countdown to give sumcoind some time to start before updating the node status page."
