@@ -39,7 +39,7 @@ SCRIPT_DL_URL="https://raw.githubusercontent.com/sumcoinlabs/SumcoinNode/master"
 WEBSITE_DL_URL="https://raw.githubusercontent.com/sumcoinlabs/SumcoinNode/master/shared/www" #the download location of the status page website files
 
 SUMCOIN_FILENAME_64="$SUMCOIN_VER_NO_BIT-x86_64-linux-gnu.tar.gz" #sumcoin x64 file name
-SUMCOIN_DL_URL_64="https://download.sumcoin.org/$SUMCOIN_VER_NO_BIT/linux/$SUMCOIN_FILENAME_64" #sumcoin x64 download link
+SUMCOIN_DL_URL_64="https://github.com/sumcoinlabs/sumcoin/releases/download/v0.16.1/sumcoin-0.16.1$SUMCOIN_VER_NO_BIT/linux/$SUMCOIN_FILENAME_64" #sumcoin x64 download link
 
 SUMCOIN_FILENAME_32="$SUMCOIN_VER_NO_BIT-i686-pc-linux-gnu.tar.gz" #sumcoin x32 file name
 SUMCOIN_DL_URL_32="https://download.sumcoin.org/$SUMCOIN_VER_NO_BIT/linux/$SUMCOIN_FILENAME_32" #sumcoin x32 download link
